@@ -1,0 +1,10 @@
+{
+    "loginURL": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+    "loginTitle": "OrangeHRM",
+    "dashboardURL": "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",
+    "dashboardTitle": "OrangeHRM",
+    "PIMURL": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList",
+    "afterLoginDetails": "pim/viewPersonalDetails/empNumber"
+
+
+}
