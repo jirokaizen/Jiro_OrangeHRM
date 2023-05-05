@@ -22,7 +22,7 @@
     "buzz": "//a[@href='/web/index.php/buzz/viewBuzz']",
     "shareText": "(//textarea[@class='oxd-buzz-post-input'])[2]",
     "sharePhotos": "(//button[@class='oxd-glass-button'])[1]",
-    "sharePhotosButton": "(//button[@class='oxd-button oxd-button--medium oxd-button--main'])[2]",
+    "sharePhotosButton": "(//button[@type='submit'])[2]",
     "bodyPostDashboard": "//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text']"
 
 }

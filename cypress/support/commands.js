@@ -25,7 +25,6 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import pageURL from '../fixtures/pageUrl.json'
 import xpathLocators from '..//fixtures/xpathLocators.json'
-import 'cypress-file-upload';
 
 Cypress.Commands.add("loginAsAdmin", () => {
 

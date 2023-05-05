@@ -62,7 +62,31 @@ class buzzPage{
          })
 
         //Test Case 4: Should able to upload multiple photos
+        cy.xpath(xpathLocators.sharePhotos).click().then(()=>{
+            cy.xpath(xpathLocators.shareText).type('Test Case 4: Should able to upload multiple photos').then(()=>{
+                cy.get("input[type=file]").selectFile("jpg.jpeg", {
+                    action: "select",
+                    force: true,
+                    })
+                cy.get("input[type=file]").selectFile("png.png", {
+                    action: "select",
+                    force: true,
+                    })
+                cy.get("input[type=file]").selectFile("gif.gif", {
+                    action: "select",
+                    force: true,
+                    })
+            cy.xpath(xpathLocators.sharePhotosButton).click().wait(3000)   
 
+            })
+
+        //Check if post is posted successfully with the photo and caption we wrote.    
+        cy.xpath(xpathLocators.bodyPostDashboard).should('contain','Test Case 4: Should able to upload multiple photos') 
+        cy.get(':nth-child(1) > .oxd-sheet > :nth-child(2) > .orangehrm-buzz-post-body > .orangehrm-buzz-photos > .orangehrm-buzz-photos-item > .orangehrm-buzz-post-body-picture')
+        .should(($lis) => {
+            expect($lis).to.have.length(3)
+          })
+         })
         //Test Case 5: Should NOT be able to upload other file formats aside fromm 'gif', 'png', 'jpg', 'jpeg'
 
     }
