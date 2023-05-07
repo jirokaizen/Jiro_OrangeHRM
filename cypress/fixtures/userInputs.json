@@ -6,7 +6,9 @@
   "images":{
     "jpg": "jpg.jpeg",
     "png": "png.png",
-    "gif": "gif.gif"
+    "gif": "gif.gif",
+    "svg": "svg.svg",
+    "tiff": "tiff.tiff"
   }
 
 }

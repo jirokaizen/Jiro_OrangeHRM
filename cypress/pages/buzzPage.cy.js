@@ -4,12 +4,13 @@ import xpathLocators from '..//fixtures/xpathLocators.json'
 
 class buzzPage{
 
-    uploadPhotos(gif,png,jpg){
+    uploadPhotos(gif,png,jpg,tiff,svg){
        
         this.uploadGIF(gif)
         this.uploadJPG(jpg)
         this.uploadPNG(png)
         this.uploadMultiplePhotos(gif,png,jpg)
+        this.uploadOtherFormats(tiff,svg)
 
     }
 
@@ -104,5 +105,47 @@ class buzzPage{
             })
     }
 
+    uploadOtherFormats(tiff,svg){
+        cy.xpath(xpathLocators.buzzPage.buzzTab).click().wait(5000)
+
+        //Test Case: Should NOT able to upload other file formats
+        cy.xpath(xpathLocators.buzzPage.sharePhotos).click().then(()=>{
+        cy.xpath(xpathLocators.buzzPage.shareText).type('Test Case: Should able to upload JPG photo').then(()=>{
+            cy.get("input[type=file]").selectFile(tiff, {
+                action: "select",
+                force: true,
+                })
+
+
+        })
+        //Check alert box showing with alert Only 'gif', 'png', 'jpg', 'jpeg' type images are allowed!
+        cy.xpath(xpathLocators.buzzPage.alert).should('be.visible').and('have.text',"Only 'gif', 'png', 'jpg', 'jpeg' type images are allowed!")
+
+
+        })
+        
+        cy.reload()
+        cy.xpath(xpathLocators.buzzPage.buzzTab).click().wait(5000)
+
+        //Test Case: Should NOT able to upload other file formats
+        cy.xpath(xpathLocators.buzzPage.sharePhotos).click().then(()=>{
+        cy.xpath(xpathLocators.buzzPage.shareText).type('Test Case: Should able to upload JPG photo').then(()=>{
+            cy.get("input[type=file]").selectFile(svg, {
+                action: "select",
+                force: true,
+                })
+
+
+        })
+        //Check alert box showing with alert Only 'gif', 'png', 'jpg', 'jpeg' type images are allowed!
+        cy.xpath(xpathLocators.buzzPage.alert).should('be.visible').and('have.text',"Only 'gif', 'png', 'jpg', 'jpeg' type images are allowed!")
+
+
+        })    
+
+        
+    }
+   
+  
 }
   export default buzzPage;

@@ -40,7 +40,24 @@
         "shareText": "(//textarea[@class='oxd-buzz-post-input'])[2]",
         "sharePhotos": "(//button[@class='oxd-glass-button'])[1]",
         "sharePhotosButton": "(//button[@type='submit'])[2]",
-        "bodyPostDashboard": "//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text']"
+        "bodyPostDashboard": "//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text']",
+        "alert": "//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"
+
+    },
+
+    "myInfoPage":{
+
+        "myInfotab": "//a[@href='/web/index.php/pim/viewMyDetails']",
+        "emergencyContactstab": "(//div[@role='tab'])[3]",
+        "addEmergenyContactButton": "(//button[@class='oxd-button oxd-button--medium oxd-button--text'])[1]",
+        "name": "(//input[contains(@class,'oxd-input oxd-input--active') and @placeholder='Search' = false])[1]",
+        "relationship": "(//input[contains(@class,'oxd-input oxd-input--active') and @placeholder='Search' = false])[2]",
+        "hometelephone": "(//input[contains(@class,'oxd-input oxd-input--active') and @placeholder='Search' = false])[3]",
+        "mobile": "(//input[contains(@class,'oxd-input oxd-input--active') and @placeholder='Search' = false])[4]",
+        "worktelephone": "(//input[contains(@class,'oxd-input oxd-input--active') and @placeholder='Search' = false])[5]",
+        "submit": "//button[@type='submit']",
+        "requiredprompt": "(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'])"
 
     }
+
 }
