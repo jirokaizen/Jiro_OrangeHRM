@@ -9,13 +9,13 @@ class loginPage{
 
   enterCredentials(username,password){
   
-    //Test Case 1: Test app when user inputs incorrect username should show invalid credential and not proceed with login.
+    //Test Case 1: Test app when user inputs incorrect username should show invalid credential and not proceed with loginPage.
     
     //Check alert box not showing
-    cy.xpath(xpathLocators.loginAlert).should('not.exist')
+    cy.xpath(xpathLocators.loginPage.alert).should('not.exist')
     
     //Locate username element
-    cy.xpath(xpathLocators.loginUsername)
+    cy.xpath(xpathLocators.loginPage.username)
     .should('be.visible')
     //clear values just in case there are text in the username field
     .clear()
@@ -24,7 +24,7 @@ class loginPage{
     .should('have.value',username+"random")
 
     //Locate password element
-    cy.xpath(xpathLocators.loginPassword)
+    cy.xpath(xpathLocators.loginPage.password)
     .should('be.visible')
     //clear values just in case there are text in the password field
     .clear()
@@ -33,10 +33,10 @@ class loginPage{
     .should('have.value',password)
 
     //Press login button
-    cy.xpath(xpathLocators.loginButton).should('exist').click()
+    cy.xpath(xpathLocators.loginPage.button).should('exist').click()
 
     //Check alert box showing with alert Invalid credentials
-    cy.xpath(xpathLocators.loginAlert).should('be.visible').and('have.text','Invalid credentials')
+    cy.xpath(xpathLocators.loginPage.alert).should('be.visible').and('have.text','Invalid credentials')
     
     //Validate it proceed to dashboard page upon unsuccessful login. 
     cy.url().should('not.eq',pageURL.dashboardURL)
@@ -46,7 +46,7 @@ class loginPage{
     //Test Case 2: Test app when user inputs incorrect password should show invalid credentials and not proceed with login.
     
     //Locate username element
-    cy.xpath(xpathLocators.loginUsername)
+    cy.xpath(xpathLocators.loginPage.username)
     .should('be.visible')
     //clear values just in case there are text in the username field
     .clear()
@@ -55,7 +55,7 @@ class loginPage{
     .should('have.value',username)
 
     //Locate password element
-    cy.xpath(xpathLocators.loginPassword)
+    cy.xpath(xpathLocators.loginPage.password)
     .should('be.visible')
     //clear values just in case there are text in the password field
     .clear()
@@ -64,10 +64,10 @@ class loginPage{
     .should('have.value',password+"incorrect")
 
     //Press login button
-    cy.xpath(xpathLocators.loginButton).should('exist').click()
+    cy.xpath(xpathLocators.loginPage.button).should('exist').click()
 
     //Check alert box showing with alert Invalid credentials
-    cy.xpath(xpathLocators.loginAlert).should('be.visible').and('have.text','Invalid credentials')
+    cy.xpath(xpathLocators.loginPage.alert).should('be.visible').and('have.text','Invalid credentials')
 
     //Validate it proceed to dashboard page upon unsuccessful login. 
     cy.url().should('not.eq',pageURL.dashboardURL)
@@ -78,10 +78,10 @@ class loginPage{
 
     //Check alert box not showing when reload
     cy.reload()
-    cy.xpath(xpathLocators.loginAlert).should('not.exist')
+    cy.xpath(xpathLocators.loginPage.alert).should('not.exist')
     
     //Locate username element
-    cy.xpath(xpathLocators.loginUsername)
+    cy.xpath(xpathLocators.loginPage.username)
     .should('be.visible')
     //clear values just in case there are text in the username field
     .clear()
@@ -90,7 +90,7 @@ class loginPage{
     .should('have.value',username)
 
     //Locate password element
-    cy.xpath(xpathLocators.loginPassword)
+    cy.xpath(xpathLocators.loginPage.password)
     .should('be.visible')
     //clear values just in case there are text in the password field
     .clear()
@@ -99,10 +99,10 @@ class loginPage{
     .should('have.value',password)
 
     //Press login button
-    cy.xpath(xpathLocators.loginButton).should('exist').click()
+    cy.xpath(xpathLocators.loginPage.button).should('exist').click()
 
     //Check alert box showing with alert Invalid credentials
-    cy.xpath(xpathLocators.loginAlert).should('not.exist')
+    cy.xpath(xpathLocators.loginPage.alert).should('not.exist')
    
     //Validate it proceed to dashboard page upon unsuccessful login. 
     cy.url().should('eq',pageURL.dashboardURL)
@@ -115,7 +115,7 @@ class loginPage{
 
 
     //Validate header title is loaded already
-    cy.xpath(xpathLocators.loginHeaderTitle).should('be.visible')
+    cy.xpath(xpathLocators.loginPage.title).should('be.visible')
 
     //Validate actual login url vs expected login url
     cy.url().should('eq',pageURL.loginURL)
@@ -144,38 +144,39 @@ class loginPage{
 
     //Test Case 4: Should not be able to create new login details when mandatory fields have no value
     cy.url().should('eq',pageURL.dashboardURL)
-    cy.xpath(xpathLocators.PIM).click()
+    cy.xpath(xpathLocators.PIMPage.PIMTab).click()
     cy.url().should('eq',pageURL.PIMURL)
-    cy.xpath(xpathLocators.addEmployee).click()
-    cy.xpath(xpathLocators.employeeID).type(Math.floor(Math.random() * 1000))
-    cy.xpath(xpathLocators.submitButton).click().wait(1500)
-    cy.xpath(xpathLocators.requiredprompt+'[1]').should('be.visible')
-    cy.xpath(xpathLocators.requiredprompt+'[2]').should('be.visible')
+    cy.xpath(xpathLocators.PIMPage.addEmployee).click()
+    cy.xpath(xpathLocators.PIMPage.employeeID).type(Math.floor(Math.random() * 1000))
+    cy.xpath(xpathLocators.PIMPage.submitButton).click().wait(1500)
+    cy.xpath(xpathLocators.PIMPage.requiredprompt+'[1]').should('be.visible')
+    cy.xpath(xpathLocators.PIMPage.requiredprompt+'[2]').should('be.visible')
 
-    cy.xpath(xpathLocators.firstName).type(generateFakeDetails.firstName).then(() => {
-      cy.xpath(xpathLocators.requiredprompt+'[1]').should('be.visible')
-      cy.xpath(xpathLocators.requiredprompt+'[2]').should('not.exist')
+    cy.xpath(xpathLocators.PIMPage.firstName).type(generateFakeDetails.firstName).then(() => {
+      cy.xpath(xpathLocators.PIMPage.requiredprompt+'[1]').should('be.visible')
+      cy.xpath(xpathLocators.PIMPage.requiredprompt+'[2]').should('not.exist')
         })
-    cy.xpath(xpathLocators.lastName).type(generateFakeDetails.lastName).then(() => {
-      cy.xpath(xpathLocators.requiredprompt+'[1]').should('not.exist')
-      cy.xpath(xpathLocators.requiredprompt+'[2]').should('not.exist')
+    cy.xpath(xpathLocators.PIMPage.lastName).type(generateFakeDetails.lastName).then(() => {
+      cy.xpath(xpathLocators.PIMPage.requiredprompt+'[1]').should('not.exist')
+      cy.xpath(xpathLocators.PIMPage.requiredprompt+'[2]').should('not.exist')
         })
 
     //Test Case 5: Should able to create new login details when mandatory fields have values
-    cy.xpath(xpathLocators.createLoginDetailscheckbox).click()
-    cy.xpath(xpathLocators.username).type(generateUsername)
-    cy.xpath(xpathLocators.password).type(generatePassword)
-    cy.xpath(xpathLocators.confirmPassword).type(generatePassword)
-    cy.xpath(xpathLocators.submitButton).click().then(() => {
+    cy.xpath(xpathLocators.PIMPage.createLoginDetailscheckbox).click()
+    cy.xpath(xpathLocators.PIMPage.username).type(generateUsername)
+    cy.xpath(xpathLocators.PIMPage.password).type(generatePassword)
+    cy.xpath(xpathLocators.PIMPage.confirmPassword).type(generatePassword)
+    cy.xpath(xpathLocators.PIMPage.submitButton).click().then(() => {
       return   cy.url().should('include', pageURL.afterLoginDetails)
       })
-    cy.xpath(xpathLocators.nameHeader).should('have.text',`${generateFakeDetails.firstName} ${generateFakeDetails.lastName}`)
-    cy.xpath(xpathLocators.profileDropdown).click().then(() => {
+    
+    cy.xpath(xpathLocators.dashboardPage.nameHeader).should('have.text',`${generateFakeDetails.firstName} ${generateFakeDetails.lastName}`)
+    cy.xpath(xpathLocators.dashboardPage.profileDropdown).click().then(() => {
       cy.wait(1000)
-      cy.xpath(xpathLocators.logoutButton).click().wait(1000)
+      cy.xpath(xpathLocators.dashboardPage.logoutButton).click().wait(1000)
       })
-    this.login(generateUsername,generatePassword)
-    cy.xpath(xpathLocators.profileDropdown).should('have.text',`${generateFakeDetails.firstName} ${generateFakeDetails.lastName}`)
+    cy.loginAs(generateUsername,generatePassword)
+    cy.xpath(xpathLocators.dashboardPage.profileDropdown).should('have.text',`${generateFakeDetails.firstName} ${generateFakeDetails.lastName}`)
   
 
   }

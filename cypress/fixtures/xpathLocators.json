@@ -1,28 +1,46 @@
 {
-    "loginButton": "//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']",
-    "loginUsername": "//input[@name='username']",
-    "loginPassword": "//input[@name='password']",
-    "loginHeaderTitle": "//h5[@class='oxd-text oxd-text--h5 orangehrm-login-title' and text()='Login']",
-    "loginAlert": "//p[@class='oxd-text oxd-text--p oxd-alert-content-text']",
-    "PIM": "//a[@href='/web/index.php/pim/viewPimModule']",
-    "addEmployee": "//a[text()='Add Employee']",
-    "firstName": "//input[@name='firstName']",
-    "middleName": "//input[@name='middleName']",
-    "lastName": "//input[@name='lastName']",
-    "employeeID": "//input[@class='oxd-input oxd-input--active' and (@placeholder='Search')=false]",
-    "createLoginDetailscheckbox": "//div[@class='oxd-switch-wrapper']",
-    "username": "(//input[@class='oxd-input oxd-input--active' and @autocomplete='off'])[1]",
-    "password": "(//input[@type='password'])[1]",
-    "confirmPassword": "(//input[@type='password'])[2]",
-    "submitButton": "//button[@type='submit']",
-    "nameHeader": "//h6[@class='oxd-text oxd-text--h6 --strong']",
-    "profileDropdown": "//span[@class='oxd-userdropdown-tab']",
-    "logoutButton": "//a[@href='/web/index.php/auth/logout']",
-    "requiredprompt": "(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'])",
-    "buzz": "//a[@href='/web/index.php/buzz/viewBuzz']",
-    "shareText": "(//textarea[@class='oxd-buzz-post-input'])[2]",
-    "sharePhotos": "(//button[@class='oxd-glass-button'])[1]",
-    "sharePhotosButton": "(//button[@type='submit'])[2]",
-    "bodyPostDashboard": "//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text']"
+    "loginPage":{
 
+        "button": "//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']",
+        "username": "//input[@name='username']",
+        "password": "//input[@name='password']",
+        "title": "//h5[@class='oxd-text oxd-text--h5 orangehrm-login-title' and text()='Login']",
+        "alert": "//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"
+
+    },
+
+    "PIMPage":{
+
+        "PIMTab": "//a[@href='/web/index.php/pim/viewPimModule']",
+        "addEmployee": "//a[text()='Add Employee']",
+        "firstName": "//input[@name='firstName']",
+        "middleName": "//input[@name='middleName']",
+        "lastName": "//input[@name='lastName']",
+        "employeeID": "//input[@class='oxd-input oxd-input--active' and (@placeholder='Search')=false]",
+        "createLoginDetailscheckbox": "//div[@class='oxd-switch-wrapper']",
+        "username": "(//input[@class='oxd-input oxd-input--active' and @autocomplete='off'])[1]",
+        "password": "(//input[@type='password'])[1]",
+        "confirmPassword": "(//input[@type='password'])[2]",
+        "submitButton": "//button[@type='submit']",
+        "requiredprompt": "(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'])"
+
+    },
+
+    "dashboardPage":{
+
+        "profileDropdown": "//span[@class='oxd-userdropdown-tab']",
+        "logoutButton": "//a[@href='/web/index.php/auth/logout']",
+        "nameHeader": "//h6[@class='oxd-text oxd-text--h6 --strong']"  
+
+    },
+
+    "buzzPage":{
+
+        "buzzTab": "//a[@href='/web/index.php/buzz/viewBuzz']",
+        "shareText": "(//textarea[@class='oxd-buzz-post-input'])[2]",
+        "sharePhotos": "(//button[@class='oxd-glass-button'])[1]",
+        "sharePhotosButton": "(//button[@type='submit'])[2]",
+        "bodyPostDashboard": "//p[@class='oxd-text oxd-text--p orangehrm-buzz-post-body-text']"
+
+    }
 }

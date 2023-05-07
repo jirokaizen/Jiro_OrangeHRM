@@ -1,4 +1,12 @@
 {
-  "loginUsername": "Admin",
-  "loginPassword": "admin123"
+  "admin":{
+    "username": "Admin",
+    "password": "admin123"
+  },
+  "images":{
+    "jpg": "jpg.jpeg",
+    "png": "png.png",
+    "gif": "gif.gif"
+  }
+
 }
