@@ -21,7 +21,7 @@ describe('Jiro Capstone', () => {
       })
 
 
-    it.skip('Scenario 1: Login and Create New Login Details', function()  {
+    it('Scenario 1: Login and Create New Login Details', function()  {
 
 
         //Test Case 1: Test app when user inputs incorrect username should show invalid credential and not proceed with login.
@@ -38,7 +38,7 @@ describe('Jiro Capstone', () => {
         
     })
 
-    it.skip('Scenario 2: Post Photos on Newsfeed (File Upload Scenario)', function()  {
+    it('Scenario 2: Post Photos on Newsfeed (File Upload Scenario)', function()  {
 
       //Test Case 1: Should be able to upload GIF photo
       //Test Case 2: Should be able to upload PNG photo
@@ -57,15 +57,12 @@ describe('Jiro Capstone', () => {
   it('Scenario 3: myInfo Add and Remove Details', function()  {
 
     //Test Case 1: Should be able to add Emergency Contacts
-    //Test Case 2: Should be able to remove Emergency Contacts
 
     cy.loginAs(this.userInputs.admin.username,this.userInputs.admin.password)
     
     //Custom method to validate TC1 and TC2
     myInfoPage.addEmergencyContacts()
 
-    //Custom method to validate TC2
-    //myInfoPage.removeEmergencyContacts()
 
     
 })

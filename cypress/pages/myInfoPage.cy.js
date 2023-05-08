@@ -57,8 +57,7 @@ class myInfoPage{
       cy.scrollTo('top')
 
       cy.xpath(`//div[text()='${generateName}']`).should('be.visible')
-      cy.xpath("(//i[@class='oxd-icon bi-trash'])[1]").click()
- 
+      cy.screenshot('Scenario3')
     })
 
   }

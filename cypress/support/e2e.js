@@ -21,3 +21,7 @@ import './commands'
 
 require('cypress-xpath');
 import 'cypress-mochawesome-reporter/register';
+
+Cypress.Screenshot.defaults({
+    overwrite: true
+  })

@@ -32,6 +32,7 @@ class buzzPage{
         cy.xpath(xpathLocators.buzzPage.bodyPostDashboard).should('contain','Test Case: Should able to upload GIF photo') 
         cy.get(':nth-child(1) > .oxd-sheet > :nth-child(2) > .orangehrm-buzz-post-body > .orangehrm-buzz-photos > .orangehrm-buzz-photos-item > .orangehrm-buzz-post-body-picture').should('exist')
          }) 
+        cy.screenshot('Scenario2_TC1')
     }
 
     uploadPNG(png){
@@ -52,6 +53,7 @@ class buzzPage{
         cy.xpath(xpathLocators.buzzPage.bodyPostDashboard).should('contain','Test Case: Should able to upload PNG photo') 
         cy.get(':nth-child(1) > .oxd-sheet > :nth-child(2) > .orangehrm-buzz-post-body > .orangehrm-buzz-photos > .orangehrm-buzz-photos-item > .orangehrm-buzz-post-body-picture').should('exist')
          })  
+        cy.screenshot('Scenario2_TC2')
     }
 
     uploadJPG(jpg){
@@ -65,7 +67,7 @@ class buzzPage{
                 force: true,
                 })
         cy.xpath(xpathLocators.buzzPage.sharePhotosButton).click().wait(3000)   
-
+        cy.screenshot('Scenario2_TC3')
         })
 
     //Check if post is posted successfully with the photo and caption we wrote.    
@@ -103,6 +105,8 @@ class buzzPage{
             expect($lis).to.have.length(3)
             })
             })
+        cy.screenshot('Scenario2_TC4')
+
     }
 
     uploadOtherFormats(tiff,svg){
@@ -139,7 +143,7 @@ class buzzPage{
         })
         //Check alert box showing with alert Only 'gif', 'png', 'jpg', 'jpeg' type images are allowed!
         cy.xpath(xpathLocators.buzzPage.alert).should('be.visible').and('have.text',"Only 'gif', 'png', 'jpg', 'jpeg' type images are allowed!")
-
+        cy.screenshot('Scenario2_TC5')
 
         })    
 

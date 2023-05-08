@@ -43,10 +43,9 @@ it('TC1: Create a repository for the authenticated user', function()  {
 
 it('TC2: List repositories for the authenticated user', function()  {
 
-  cy.wait(3000)
   cy.request({
       method: 'GET', 
-      url: 'https://api.github.com/user/repos',
+      url: `https://api.github.com/repos/${this.git.login}/${randomRepoName}`,
       headers:{
         Authorization: 'Bearer ' + this.git.token,
         accept: 'application/json'
@@ -56,7 +55,9 @@ it('TC2: List repositories for the authenticated user', function()  {
 
       let responseBody = result.body
       expect(result.status).eq(200)
-      expect(responseBody[0].name).eq(randomRepoName)
+      expect(responseBody.owner.login).eq(this.git.login)
+      expect(responseBody.owner.id).eq(this.git.id)
+      expect(responseBody.name).eq(randomRepoName)
       expect(result.headers).to.include({
         'content-type': 'application/json; charset=utf-8'
       })
@@ -65,6 +66,38 @@ it('TC2: List repositories for the authenticated user', function()  {
     })
     
 })
+
+it('TC3: List university as per Country', function()  {
+
+  cy.request({
+      method: 'GET', 
+      url: 'http://universities.hipolabs.com/search?country=philippines',
+      headers:{
+        accept: 'application/json'
+      }
+
+    }).then( (result) => {
+
+      let responseBody = result.body
+      expect(result.status).eq(200)
+
+
+       expect(responseBody[0].country).eq(this.git.country)
+       expect(responseBody[0].name).eq(this.git.school)
+       expect(responseBody[0].alpha_two_code).eq(this.git.alpha_two_code)
+
+
+       expect(result.headers).to.include({
+       'content-type': 'application/json',
+       'content-length': '23763'
+    })
+    expect(result.duration).to.not.be.greaterThan(2000)   
+
+
+    })
+})
+
+
 
 
 })
