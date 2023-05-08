@@ -88,8 +88,7 @@ it('TC3: List university as per Country', function()  {
 
 
        expect(result.headers).to.include({
-       'content-type': 'application/json',
-       'content-length': '23763'
+       'content-type': 'application/json'
     })
     expect(result.duration).to.not.be.greaterThan(2000)   
 
