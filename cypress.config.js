@@ -4,7 +4,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
-    reportPageTitle: 'custom-title',
+    reportPageTitle: 'Jiro_OrangeHRM',
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
