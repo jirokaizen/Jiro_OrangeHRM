@@ -15,7 +15,9 @@
     "executeTestOnEdgeHeadless": "npx cypress run --spec .\\cypress\\e2e\\orangeHRM.cy.js --browser edge",  
     "executeTestOnFirefox": "npx cypress run --spec .\\cypress\\e2e\\orangeHRM.cy.js --browser firefox --headed",
     "executeTestOnFirefoxHeadless": "npx cypress run --spec .\\cypress\\e2e\\orangeHRM.cy.js --browser firefox", 
-    "executeAPIOnChrome": "npx cypress run --spec cypress\\e2e\\API.cy.js --browser chrome --headed"
+    "executeAPIOnChrome": "npx cypress run --spec cypress\\e2e\\API.cy.js --browser chrome --headed",
+    "executeAllTestOnChrome": "npx cypress run --spec cypress\\e2e --browser chrome --headed"
+
   },
   "author": "",
   "license": "ISC",
