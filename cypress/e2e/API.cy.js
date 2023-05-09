@@ -41,7 +41,7 @@ it('TC1: Create a repository for the authenticated user', function()  {
     
 })
 
-it('TC2: List repositories for the authenticated user', function()  {
+it('TC2: List previous created repository for the authenticated user', function()  {
 
   cy.request({
       method: 'GET', 

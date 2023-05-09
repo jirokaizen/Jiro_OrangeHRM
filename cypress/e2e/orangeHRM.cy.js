@@ -60,7 +60,7 @@ describe('Jiro Capstone', () => {
 
     cy.loginAs(this.userInputs.admin.username,this.userInputs.admin.password)
     
-    //Custom method to validate TC1 and TC2
+    //Custom method to validate TC1
     myInfoPage.addEmergencyContacts()
 
 

@@ -14,6 +14,13 @@ class loginPage{
     //Check alert box not showing
     cy.xpath(xpathLocators.loginPage.alert).should('not.exist')
     
+    //Check required prompt for username and password
+    cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('be.visible').and('have.text','Required')
+      cy.screenshot('Login-RequiredPrompt')
+    })
+
     //Locate username element
     cy.xpath(xpathLocators.loginPage.username)
     .should('be.visible')
@@ -22,7 +29,14 @@ class loginPage{
     //type the non existing username
     .type(username+"random")
     .should('have.value',username+"random")
-
+    
+    cy.xpath(xpathLocators.loginPage.button).should('exist').click()
+    //Required prompt should only show for password
+    cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('not.exist')
+    })
+      
     //Locate password element
     cy.xpath(xpathLocators.loginPage.password)
     .should('be.visible')
@@ -37,22 +51,18 @@ class loginPage{
 
     //Check alert box showing with alert Invalid credentials
     cy.xpath(xpathLocators.loginPage.alert).should('be.visible').and('have.text','Invalid credentials')
+
+    //Required prompt should show again for both fields
+    cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('be.visible').and('have.text','Required')
+    })
     
     //Validate it proceed to dashboard page upon unsuccessful login. 
     cy.url().should('not.eq',pageURL.dashboardURL)
 
-
-
     //Test Case 2: Test app when user inputs incorrect password should show invalid credentials and not proceed with login.
     
-    //Locate username element
-    cy.xpath(xpathLocators.loginPage.username)
-    .should('be.visible')
-    //clear values just in case there are text in the username field
-    .clear()
-    //type a existing username
-    .type(username)
-    .should('have.value',username)
 
     //Locate password element
     cy.xpath(xpathLocators.loginPage.password)
@@ -63,15 +73,37 @@ class loginPage{
     .type(password+"incorrect")
     .should('have.value',password+"incorrect")
 
+    cy.xpath(xpathLocators.loginPage.button).should('exist').click()
+    //Required prompt should only show for username
+    cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('not.exist')
+    })
+
+
+    //Locate username element
+    cy.xpath(xpathLocators.loginPage.username)
+    .should('be.visible')
+    //clear values just in case there are text in the username field
+    .clear()
+    //type a existing username
+    .type(username)
+    .should('have.value',username)
+
     //Press login button
     cy.xpath(xpathLocators.loginPage.button).should('exist').click()
 
     //Check alert box showing with alert Invalid credentials
     cy.xpath(xpathLocators.loginPage.alert).should('be.visible').and('have.text','Invalid credentials')
 
+    //Required prompt should show again for both fields
+    cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
+      cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('be.visible').and('have.text','Required')
+    })
+
     //Validate it proceed to dashboard page upon unsuccessful login. 
     cy.url().should('not.eq',pageURL.dashboardURL)
-
 
     //Test Case 3: Test app when user inputs correct username and password should not show invalid credentials and proceed with login.
     
@@ -98,6 +130,9 @@ class loginPage{
     .type(password)
     .should('have.value',password)
 
+    cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('not.exist')
+    cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('not.exist')
+    
     //Press login button
     cy.xpath(xpathLocators.loginPage.button).should('exist').click()
 

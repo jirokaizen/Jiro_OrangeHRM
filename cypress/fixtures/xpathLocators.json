@@ -5,7 +5,8 @@
         "username": "//input[@name='username']",
         "password": "//input[@name='password']",
         "title": "//h5[@class='oxd-text oxd-text--h5 orangehrm-login-title' and text()='Login']",
-        "alert": "//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"
+        "alert": "//p[@class='oxd-text oxd-text--p oxd-alert-content-text']",
+        "requiredprompt": "(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'])"
 
     },
 
