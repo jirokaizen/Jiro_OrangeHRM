@@ -21,7 +21,7 @@ describe('Jiro Capstone', () => {
       })
 
 
-    it.only('Scenario 1: Login and Create New Login Details', function()  {
+    it('Scenario 1: Login and Create New Login Details', function()  {
 
 
         //Test Case 1: Test app when user inputs incorrect username should show invalid credential and not proceed with login.
@@ -54,7 +54,7 @@ describe('Jiro Capstone', () => {
       
   })
 
-  it('Scenario 3: myInfo Add and Remove Details', function()  {
+  it('Scenario 3: myInfo Add Emergency Details', function()  {
 
     //Test Case 1: Should be able to add Emergency Contacts
 

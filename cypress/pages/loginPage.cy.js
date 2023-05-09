@@ -209,6 +209,7 @@ class loginPage{
 
     //Test Case 5: Should able to create new login details when mandatory fields have values
     cy.xpath(xpathLocators.PIMPage.createLoginDetailscheckbox).click()
+    cy.screenshot('Login-newDetails2')
     cy.xpath(xpathLocators.PIMPage.username).type(generateUsername)
     cy.xpath(xpathLocators.PIMPage.password).type(generatePassword)
     cy.xpath(xpathLocators.PIMPage.confirmPassword).type(generatePassword)
@@ -223,7 +224,7 @@ class loginPage{
       })
     cy.loginAs(generateUsername,generatePassword)
     cy.xpath(xpathLocators.dashboardPage.profileDropdown).should('have.text',`${generateFakeDetails.firstName} ${generateFakeDetails.lastName}`).click()
-    cy.screenshot('Login-newDetails2')
+    cy.screenshot('Login-newDetails3')
 
   
 
