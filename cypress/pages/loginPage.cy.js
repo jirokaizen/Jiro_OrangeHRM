@@ -81,9 +81,7 @@ class loginPage{
     cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('not.exist')
-      cy.screenshot('Login-RequiredPrompt4')
     })
-
 
     //Locate username element
     cy.xpath(xpathLocators.loginPage.username)
@@ -99,6 +97,8 @@ class loginPage{
 
     //Check alert box showing with alert Invalid credentials
     cy.xpath(xpathLocators.loginPage.alert).should('be.visible').and('have.text','Invalid credentials')
+    cy.screenshot('Login-RequiredPrompt4')
+
 
     //Required prompt should show again for both fields
     cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
