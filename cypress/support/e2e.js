@@ -23,5 +23,6 @@ require('cypress-xpath');
 import 'cypress-mochawesome-reporter/register';
 
 Cypress.Screenshot.defaults({
-    overwrite: true
+    overwrite: true,
+    capture: 'viewport'
   })

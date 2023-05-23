@@ -18,6 +18,7 @@ class loginPage{
     cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('be.visible').and('have.text','Required')
+      cy.wait(1000)
       cy.screenshot('Login-RequiredPrompt')
     })
 
@@ -35,6 +36,7 @@ class loginPage{
     cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('not.exist')
+      cy.screenshot('Login-RequiredPrompt2')
     })
       
     //Locate password element
@@ -56,6 +58,7 @@ class loginPage{
     cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('be.visible').and('have.text','Required')
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('be.visible').and('have.text','Required')
+      cy.screenshot('Login-RequiredPrompt3')
     })
     
     //Validate it proceed to dashboard page upon unsuccessful login. 
@@ -80,7 +83,6 @@ class loginPage{
       cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('not.exist')
     })
 
-
     //Locate username element
     cy.xpath(xpathLocators.loginPage.username)
     .should('be.visible')
@@ -95,6 +97,8 @@ class loginPage{
 
     //Check alert box showing with alert Invalid credentials
     cy.xpath(xpathLocators.loginPage.alert).should('be.visible').and('have.text','Invalid credentials')
+    cy.screenshot('Login-RequiredPrompt4')
+
 
     //Required prompt should show again for both fields
     cy.xpath(xpathLocators.loginPage.button).click().then(()=>{
@@ -132,6 +136,8 @@ class loginPage{
 
     cy.xpath(xpathLocators.loginPage.requiredprompt+'[1]').should('not.exist')
     cy.xpath(xpathLocators.loginPage.requiredprompt+'[2]').should('not.exist')
+    cy.screenshot('Login-RequiredPrompt5')
+
     
     //Press login button
     cy.xpath(xpathLocators.loginPage.button).should('exist').click()
@@ -141,6 +147,9 @@ class loginPage{
    
     //Validate it proceed to dashboard page upon unsuccessful login. 
     cy.url().should('eq',pageURL.dashboardURL)
+    cy.wait(1500)
+    .screenshot('Login-RequiredPrompt6')
+
 
   }
 
@@ -186,6 +195,8 @@ class loginPage{
     cy.xpath(xpathLocators.PIMPage.submitButton).click().wait(1500)
     cy.xpath(xpathLocators.PIMPage.requiredprompt+'[1]').should('be.visible')
     cy.xpath(xpathLocators.PIMPage.requiredprompt+'[2]').should('be.visible')
+    cy.screenshot('Login-newDetails')
+
 
     cy.xpath(xpathLocators.PIMPage.firstName).type(generateFakeDetails.firstName).then(() => {
       cy.xpath(xpathLocators.PIMPage.requiredprompt+'[1]').should('be.visible')
@@ -198,6 +209,7 @@ class loginPage{
 
     //Test Case 5: Should able to create new login details when mandatory fields have values
     cy.xpath(xpathLocators.PIMPage.createLoginDetailscheckbox).click()
+    cy.screenshot('Login-newDetails2')
     cy.xpath(xpathLocators.PIMPage.username).type(generateUsername)
     cy.xpath(xpathLocators.PIMPage.password).type(generatePassword)
     cy.xpath(xpathLocators.PIMPage.confirmPassword).type(generatePassword)
@@ -211,7 +223,9 @@ class loginPage{
       cy.xpath(xpathLocators.dashboardPage.logoutButton).click().wait(1000)
       })
     cy.loginAs(generateUsername,generatePassword)
-    cy.xpath(xpathLocators.dashboardPage.profileDropdown).should('have.text',`${generateFakeDetails.firstName} ${generateFakeDetails.lastName}`)
+    cy.xpath(xpathLocators.dashboardPage.profileDropdown).should('have.text',`${generateFakeDetails.firstName} ${generateFakeDetails.lastName}`).click()
+    cy.screenshot('Login-newDetails3')
+
   
 
   }

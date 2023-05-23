@@ -18,7 +18,7 @@ it('TC1: Create a repository for the authenticated user', function()  {
       method: 'POST', 
       url: this.git.url, 
       headers:{
-        Authorization: 'Bearer ' + this.git.token,
+        Authorization: 'Bearer ' + this.git.token1 + this.git.token2,
         accept: 'application/json'
       },
       body: {
@@ -47,7 +47,7 @@ it('TC2: List previous created repository for the authenticated user', function(
       method: 'GET', 
       url: `https://api.github.com/repos/${this.git.login}/${randomRepoName}`,
       headers:{
-        Authorization: 'Bearer ' + this.git.token,
+        Authorization: 'Bearer ' + this.git.token1 + this.git.token2,
         accept: 'application/json'
       }
 

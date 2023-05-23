@@ -24,8 +24,8 @@ describe('Jiro Capstone', () => {
     it('Scenario 1: Login and Create New Login Details', function()  {
 
 
-        //Test Case 1: Test app when user inputs incorrect username should show invalid credential and not proceed with login.
-        //Test Case 2: Test app when user inputs incorrect password should show invalid credentials and not proceed with login.
+        //Test Case 1: Test app when user inputs incorrect username and correct password should show invalid credential and not proceed with login.
+        //Test Case 2: Test app when user inputs incorrect password and correct username should show invalid credentials and not proceed with login.
         //Test Case 3: Test app when user inputs correct username and password should not show invalid credentials and proceed with login.
 
         //Custom method to validate TC1-TC3
@@ -54,7 +54,7 @@ describe('Jiro Capstone', () => {
       
   })
 
-  it('Scenario 3: myInfo Add and Remove Details', function()  {
+  it('Scenario 3: myInfo Add Emergency Details', function()  {
 
     //Test Case 1: Should be able to add Emergency Contacts
 
